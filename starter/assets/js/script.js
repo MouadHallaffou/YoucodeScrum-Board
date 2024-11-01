@@ -109,7 +109,7 @@ function renderTasks() {
 
 const buttonDelete = document.getElementById("task-delete-btn") // Sélection du bouton Dellette
 
-buttonDelete.addEventListener("click",(showTask.style.display = "block"));
+buttonDelete.addEventListener("click",(showTask.style.display = "none"));
 
 
 
