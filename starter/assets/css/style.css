@@ -1,0 +1,108 @@
+.pace {
+    display: none;
+}
+
+body{
+   background: #fff;
+}
+
+.main-style {
+    min-height: 100vh;
+    background: url(../img/cover/cover-scrum-board.png) no-repeat fixed;
+    background-size: 360px;
+    background-position: right bottom;
+}
+
+#modal-task{
+    position: absolute;
+    top: 40px;
+    right: 35%;
+    width: 450px;
+    height: 800px;
+    display: none;
+}
+
+span.required-star {
+    color: red; 
+    margin-left: 2px;
+}
+
+
+
+
+/* 
+===================================
+==============css native ==========
+===================================
+.modal_fade{
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    width: 450px;
+    height: 600px;
+    border-radius: 8px;
+    background: rgb(238, 240, 240);
+    display: ; 
+    padding: 1rem;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+
+ h3{
+    display: flex;
+    justify-content:flex-start ;
+    font-weight: 900;
+ }
+
+ .head i{
+    font-size: 24px;
+    position: absolute;
+    right: 30px;
+ }
+
+ .information{
+    background: rgb(227, 103, 103);
+    display: flex;
+ }
+
+ .information form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    gap: 6px;
+ }
+
+ .information form input{
+    width: 400px;
+    border-radius: 6px;
+    padding: 6px;
+    outline: #585757 solid 2px;
+    border: none;
+ }
+
+
+ .information form ::placeholder{
+    font-size: 14px;
+    font-style: italic;
+ }
+
+ .submit-cancel{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+ }
+
+ span.obligation{
+    color: red;
+ }
+
+ option{
+    width: 350;
+    =============================
+    =============================
+    =============================
+ } */

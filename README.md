@@ -1,4 +1,4 @@
-# YoucodeScrum - Application de Gestion de Tâches Scrum Board
+# YoucodeScrum - Application de Gestion des Tâches Scrum Board
 
 ## Contexte du projet
 
@@ -35,5 +35,5 @@ Le projet **YoucodeScrum** est une application de gestion de tâches interactive
 ### Étapes d’installation
 1. **Cloner le dépôt** :
    ```bash
-   git clone [https://github.com/MouadHallaffou/YoucodeScrum-Board]
+   git clone https://github.com/MouadHallaffou/YoucodeScrum-Board
    cd YoucodeScrum
