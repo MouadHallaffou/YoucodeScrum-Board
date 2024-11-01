@@ -107,9 +107,7 @@ function renderTasks() {
   document.getElementById("to-do-tasks-count").textContent = tasksList.length;
 }
 
-const buttonDelete = document.getElementById("task-delete-btn") // Sélection du bouton Dellette
 
-buttonDelete.addEventListener("click",(showTask.style.display = "none"));
 
 
 
