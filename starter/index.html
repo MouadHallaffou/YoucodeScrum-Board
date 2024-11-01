@@ -1,241 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Scrum Board || Mouad</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      name="viewport"
+    />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
 
-<head>
-  <meta charset="utf-8" />
-  <title>Scrum Board || Mouad</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-  <meta content="" name="description" />
-  <meta content="" name="author" />
+    <!-- ================== BEGIN core-css ================== -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+    <link href="assets/css/vendor.min.css" rel="stylesheet" />
+    <link href="assets/css/default/app.min.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+    />
 
-  <!-- ================== BEGIN core-css ================== -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <link href="assets/css/vendor.min.css" rel="stylesheet" />
-  <link href="assets/css/default/app.min.css" rel="stylesheet" />
-  <link href="assets/css/style.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <!-- ================== END core-css ================== -->
+  </head>
 
-  <!-- ================== END core-css ================== -->
-</head>
+  <body>
+    <!-- BEGIN #app -->
+    <div id="app" class="app-without-sidebar">
+      <!-- BEGIN #content -->
+      <div id="content" class="app-content main-style">
+        <div class="d-flex align-items-center mb-3">
+          <div>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+              <li class="breadcrumb-item active">Scrum Board</li>
+            </ol>
+            <!-- BEGIN page-header -->
+            <h1 class="page-header mb-0">Scrum Board</h1>
+            <!-- END page-header -->
+          </div>
 
-<body>
-  <!-- BEGIN #app -->
-  <div id="app" class="app-without-sidebar">
-    <!-- BEGIN #content -->
-    <div id="content" class="app-content main-style">
-      <div class="d-flex align-items-center mb-3">
-        <div>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-            <li class="breadcrumb-item active">Scrum Board</li>
-          </ol>
-          <!-- BEGIN page-header -->
-          <h1 class="page-header mb-0">Scrum Board</h1>
-          <!-- END page-header -->
+          <div class="ms-auto btn">
+            <a
+              href="#modal-task"
+              data-bs-toggle="modal"
+              class="btn btn-success btn-rounded px-4 rounded-pill"
+              ><i class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add
+              Task</a
+            >
+          </div>
         </div>
 
-        <div class="ms-auto btn">
-          <a href="#modal-task" data-bs-toggle="modal" class="btn btn-success btn-rounded px-4 rounded-pill"><i
-              class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add
-            Task</a>
+        <div class="row">
+          <div class="col-xl-4 col-lg-6">
+            <div class="panel panel-inverse">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  To do (<span id="to-do-tasks-count">0</span>)
+                </h4>
+              </div>
+              <div
+                class="list-group list-group-flush rounded-bottom overflow-hidden panel-body p-0"
+                id="to-do-tasks"
+              >
+                <!-- TO DO TASKS HERE -->
+                <button
+                  class="button-to-do d-flex justify-content-start px-1 py-2"
+                >
+                  <div class="d-flex justify-content-start p-1">
+                    <i class="bi bi-question-circle text-success"></i>
+                  </div>
+                  <div
+                    class="col-card-priority d-flex flex-column mb-4 align-items-start px-2"
+                  >
+                    <div class="fw-bold fs-5">
+                      Keep all the updated requirements in one place
+                    </div>
+                    <div class="">
+                      <div class="d-flex justify-content-start text-secondary">
+                        #1 created in 2022-10-08
+                      </div>
+                      <div
+                        class=""
+                        title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly."
+                      >
+                        There is hardly anything more frustrating than having
+                        t...
+                      </div>
+                    </div>
+
+                    <div class="col-card-priority">
+                      <span class="btn btn-primary p-1">Low</span>
+                      <span class="btn btn-secondary p-1">Medium</span>
+                      <span class="btn btn-success p-1">Hight</span>
+                      <span class="btn btn-danger p-1">Critical</span>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification de succès -->
+          <div id="success-alert" class="alert-success">
+            <i class="bi bi-check-circle-fill"></i> Tâche ajoutée avec succès !
+          </div>
+          <!-- ------------------------- -->
+
+          <div class="col-xl-4 col-lg-6">
+            <div class="panel panel-inverse">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  In Progress (<span id="in-progress-tasks-count">1</span>)
+                </h4>
+              </div>
+              <div
+                class="list-group list-group-flush rounded-bottom overflow-hidden panel-body p-0"
+                id="in-progress-tasks"
+              >
+                <!-- IN PROGRESS TASKS HERE -->
+                <button class="d-flex justify-content-start px-2 py-2">
+                  <div class="-flex justify-content-start p-1">
+                    <i class="bi bi-circle text-success"></i>
+                  </div>
+                  <div class="">
+                    <div class="">Describe steps to reproduce an issue</div>
+                    <div class="">
+                      <div class="d-flex justify-content-start text-secondary">
+                        #6 created in 2022-10-08
+                      </div>
+                      <div
+                        class=""
+                        title="including as many details as possible."
+                      >
+                        including as many details as possible.
+                      </div>
+                    </div>
+                    <div class="col-card-priority">
+                      <span class="btn btn-primary p-1">Low</span>
+                      <span class="btn btn-secondary p-1">Medium</span>
+                      <span class="btn btn-success p-1">Hight</span>
+                      <span class="btn btn-danger p-1">Critical</span>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6">
+            <div class="panel panel-inverse">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  Done (<span id="done-tasks-count">1</span>)
+                </h4>
+              </div>
+              <div
+                class="list-group list-group-flush rounded-bottom overflow-hidden panel-body p-0"
+                id="done-tasks"
+              >
+                <!-- DONE TASKS HERE -->
+
+                <button
+                  class="d-flex justify-content-start px-2 py-2"
+                  style="width: px"
+                >
+                  <div class="">
+                    <i
+                      class="bi bi-check-circle text-success rounded-circle"
+                    ></i>
+                  </div>
+                  <div class="">
+                    <div class="">Provide access to logs</div>
+                    <div class="">
+                      <div class="" d-flex justify-content-start text-secondary>
+                        #10 created in 2022-10-08
+                      </div>
+                      <div
+                        class=""
+                        title="as they can be helpful in reproducing the steps that caused the problem in the first place."
+                      >
+                        as they can be helpful in reproducing the steps that
+                        ca...
+                      </div>
+                    </div>
+                    <div class="">
+                      <span class="btn btn-primary p-1">Low</span>
+                      <span class="btn btn-secondary p-1">Medium</span>
+                      <span class="btn btn-success p-1">Hight</span>
+                      <span class="btn btn-danger p-1">Critical</span>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- END #content -->
 
-      <div class="row">
-        <div class="col-xl-4 col-lg-6">
-          <div class="panel panel-inverse">
-            <div class="panel-heading">
-              <h4 class="panel-title">To do (<span id="to-do-tasks-count">0</span>)</h4>
+      <!-- BEGIN scroll-top-btn -->
+      <a
+        href="javascript:;"
+        class="btn btn-icon btn-circle btn-success btn-scroll-to-top"
+        data-toggle="scroll-to-top"
+        ><i class="fa fa-angle-up"></i
+      ></a>
+      <!-- END scroll-top-btn -->
+    </div>
+    <!-- END #app -->
+
+    <!-- TASK MODAL -->
+    <div class="" id="modal-task">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form action="scripts.php" method="POST" id="form-task">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Task</h5>
+              <a
+                href="#"
+                id="close_btn"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></a>
             </div>
-            <div class="list-group list-group-flush rounded-bottom overflow-hidden panel-body p-0" id="to-do-tasks">
-              <!-- TO DO TASKS HERE -->
-              <button class="button-to-do d-flex justify-content-start px-1 py-2">
-                <div class="d-flex justify-content-start p-1">
-                  <i class="bi bi-question-circle text-success"></i>
+            <div class="modal-body">
+              <!-- This Input Allows Storing Task Index  -->
+              <input type="hidden" id="task-id" />
+              <div class="mb-3">
+                <label class="form-label"
+                  >Title<span class="required-star">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="task-title"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label"
+                  >Type<span class="required-star">*</span></label
+                >
+                <div class="ms-3">
+                  <div class="form-check mb-1">
+                    <input
+                      class="form-check-input"
+                      name="task-type"
+                      type="radio"
+                      value="Feature"
+                      id="task-type-feature"
+                    />
+                    <label class="form-check-label" for="task-type-feature"
+                      >Feature</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      name="task-type"
+                      type="radio"
+                      value="Bug"
+                      id="task-type-bug"
+                    />
+                    <label class="form-check-label" for="task-type-bug"
+                      >Bug</label
+                    >
+                  </div>
                 </div>
-                <div class="col-card-priority d-flex flex-column mb-4 align-items-start px-2">
-                  <div class="fw-bold fs-5">
-                    Keep all the updated requirements in one place
-                  </div>
-                  <div class="">
-                    <div class="d-flex justify-content-start text-secondary">#1 created in 2022-10-08</div>
-                    <div class=""
-                      title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements. The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly.">
-                      There is hardly anything more frustrating than having
-                      t...
-                    </div>
-                  </div>
-
-                  <div class="col-card-priority">
-                    <span class="btn btn-primary p-1">Low</span>
-                    <span class="btn btn-secondary p-1">Medium</span>
-                    <span class="btn btn-success p-1">Hight</span>
-                    <span class="btn btn-danger p-1">Critical</span>
-                  </div>
-                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label"
+                  >Priority<span class="required-star">*</span></label
+                >
+                <select class="form-select" id="task-priority">
+                  <option value="">Please select</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                  <option value="Critical">Critical</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label"
+                  >Status<span class="required-star">*</span></label
+                >
+                <select class="form-select" id="task-status">
+                  <option value="">Please select</option>
+                  <option value="To Do">To Do</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Done">Done</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label"
+                  >Date<span class="required-star">*</span></label
+                >
+                <input type="date" class="form-control" id="task-date" />
+              </div>
+              <div class="mb-0">
+                <label class="form-label"
+                  >Description<span class="required-star">*</span></label
+                >
+                <textarea
+                  class="form-control overflow-auto"
+                  rows="5"
+                  id="task-description"
+                ></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="reset"
+                id="cancel-btn"
+                class="btn btn-white"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                name="delete"
+                class="btn btn-danger task-action-btn d-none"
+                id="task-delete-btn"
+              >
+                Delete
+              </button>
+              <button
+                type="submit"
+                name="update"
+                class="btn btn-warning task-action-btn d-none"
+                id="task-update-btn"
+              >
+                Update
+              </button>
+              <button
+                type="submit"
+                name="save"
+                class="btn btn-primary task-action-btn"
+                id="task-save-btn"
+              >
+                Save
               </button>
             </div>
-          </div>
-        </div>
-
-        
-        <div class="col-xl-4 col-lg-6">
-          <div class="panel panel-inverse">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                In Progress (<span id="in-progress-tasks-count">1</span>)
-              </h4>
-            </div>
-            <div class="list-group list-group-flush rounded-bottom overflow-hidden panel-body p-0"
-              id="in-progress-tasks">
-              <!-- IN PROGRESS TASKS HERE -->
-              <button class="d-flex justify-content-start px-2 py-2">
-                <div class="-flex justify-content-start p-1">
-                  <i class="bi bi-circle text-success"></i>
-                </div>
-                <div class="">
-                  <div class="">Describe steps to reproduce an issue</div>
-                  <div class="">
-                    <div class="d-flex justify-content-start text-secondary">#6 created in 2022-10-08</div>
-                    <div class="" title="including as many details as possible.">
-                      including as many details as possible.
-                    </div>
-                  </div>
-                  <div class="col-card-priority">
-                    <span class="btn btn-primary p-1">Low</span>
-                    <span class="btn btn-secondary p-1">Medium</span>
-                    <span class="btn btn-success p-1">Hight</span>
-                    <span class="btn btn-danger p-1">Critical</span>
-                  </div>
-                </div>
-              </button>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6">
-          <div class="panel panel-inverse">
-            <div class="panel-heading">
-              <h4 class="panel-title">Done (<span id="done-tasks-count">1</span>)</h4>
-            </div>
-            <div class="list-group list-group-flush rounded-bottom overflow-hidden panel-body p-0" id="done-tasks">
-              <!-- DONE TASKS HERE -->
-
-              <button class="d-flex justify-content-start px-2 py-2" style="width: px;">
-                <div class="">
-                  <i class="bi bi-check-circle text-success rounded-circle"></i>
-                </div>
-                <div class="">
-                  <div class="">Provide access to logs</div>
-                  <div class="">
-                    <div class="" d-flex justify-content-start text-secondary>#10 created in 2022-10-08</div>
-                    <div class=""
-                      title="as they can be helpful in reproducing the steps that caused the problem in the first place.">
-                      as they can be helpful in reproducing the steps that
-                      ca...
-                    </div>
-                  </div>
-                  <div class="">
-                    <span class="btn btn-primary p-1">Low</span>
-                    <span class="btn btn-secondary p-1">Medium</span>
-                    <span class="btn btn-success p-1">Hight</span>
-                    <span class="btn btn-danger p-1">Critical</span>
-                  </div>
-                </div>
-              </button>
-
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
-    <!-- END #content -->
 
-    <!-- BEGIN scroll-top-btn -->
-    <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"><i
-        class="fa fa-angle-up"></i></a>
-    <!-- END scroll-top-btn -->
-  </div>
-  <!-- END #app -->
-
-	<!-- TASK MODAL -->
-	<div class="" id="modal-task">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<form action="scripts.php" method="POST" id="form-task">
-					<div class="modal-header">
-						<h5 class="modal-title">Add Task</h5>
-						<a href="#" id="close_btn" class="btn-close" data-bs-dismiss="modal"></a>
-					</div>
-					<div class="modal-body">
-							<!-- This Input Allows Storing Task Index  -->
-							<input type="hidden" id="task-id">
-							<div class="mb-3">
-								<label class="form-label">Title<span class="required-star">*</span></label>
-								<input type="text" class="form-control" id="task-title" autocomplete="off"/>
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Type<span class="required-star">*</span></label>
-								<div class="ms-3">
-									<div class="form-check mb-1">
-										<input class="form-check-input" name="task-type" type="radio" value="Feature" id="task-type-feature"/>
-										<label class="form-check-label" for="task-type-feature">Feature</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" name="task-type" type="radio" value="Bug" id="task-type-bug"/>
-										<label class="form-check-label" for="task-type-bug">Bug</label>
-									</div>
-								</div>
-								
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Priority<span class="required-star">*</span></label>
-								<select class="form-select" id="task-priority">
-									<option value="">Please select</option>
-									<option value="Low">Low</option>
-									<option value="Medium">Medium</option>
-									<option value="High">High</option>
-									<option value="Critical">Critical</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Status<span class="required-star">*</span></label>
-								<select class="form-select" id="task-status">
-									<option value="">Please select</option>
-									<option value="To Do">To Do</option>
-									<option value="In Progress">In Progress</option>
-									<option value="Done">Done</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label class="form-label">Date<span class="required-star">*</span></label>
-								<input type="date" class="form-control" id="task-date"/>
-							</div>
-						 <div class="mb-0">
-								<label class="form-label">Description<span class="required-star">*</span></label>
-								<textarea class="form-control overflow-auto" rows="5" id="task-description"></textarea>
-							</div> 
-
-					</div>
-					<div class="modal-footer">
-						<button type="reset"  id="cancel-btn" class="btn btn-white" data-bs-dismiss="modal">Cancel</button>
-						<button type="submit" name="delete" class="btn btn-danger task-action-btn d-none" id="task-delete-btn">Delete</button>
-						<button type="submit" name="update" class="btn btn-warning task-action-btn d-none" id="task-update-btn">Update</button>
-						<button type="submit" name="save" class="btn btn-primary task-action-btn" id="task-save-btn">Save</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-  <!-- ================== BEGIN core-js ================== -->
-  <script src="assets/js/script.js"></script>
-  <!-- ================== END core-js ================== -->
-</body>
-
+    <!-- ================== BEGIN core-js ================== -->
+    <script src="assets/js/script.js"></script>
+    <!-- ================== END core-js ================== -->
+     
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
 </html>

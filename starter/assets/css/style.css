@@ -1,32 +1,50 @@
 .pace {
-    display: none;
+  display: none;
 }
 
-body{
-   background: #fff;
+body {
+  background: #fff;
 }
 
 .main-style {
-    min-height: 100vh;
-    background: url(../img/cover/cover-scrum-board.png) no-repeat fixed;
-    background-size: 360px;
-    background-position: right bottom;
+  min-height: 100vh;
+  background: url(../img/cover/cover-scrum-board.png) no-repeat fixed;
+  background-size: 360px;
+  background-position: right bottom;
 }
 
-#modal-task{
-    position: absolute;
-    top: 40px;
-    right: 35%;
-    width: 450px;
-    height: 800px;
-    display: none;
+#modal-task {
+  position: absolute;
+  top: 10%;
+  right: 35%;
+  width: 450px;
+  height: 800px;
+  display: none;
 }
 
 span.required-star {
-    color: red; 
-    margin-left: 2px;
+  color: red;
+  margin-left: 2px;
 }
 
+.alert-success {
+  position: fixed;
+  width: 350px;
+  top: 400px;
+  left: 100px;
+  background-color: #44fe8e;
+  color: #026218fd;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 18px;
+  align-items: center;
+  display: none;
+}
+
+.alert-success i {
+  margin-right: 10px;
+  font-size: 30px;
+}
 
 
 
