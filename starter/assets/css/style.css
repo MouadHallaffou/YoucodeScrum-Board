@@ -30,8 +30,8 @@ span.required-star {
 .alert-success {
   position: fixed;
   width: 350px;
-  top: 400px;
-  left: 100px;
+  top: 30px;
+  left: 600px;
   background-color: #44fe8e;
   color: #026218fd;
   padding: 10px 20px;
@@ -39,6 +39,7 @@ span.required-star {
   font-size: 18px;
   align-items: center;
   display: none;
+  z-index: 10;
 }
 
 .alert-success i {
