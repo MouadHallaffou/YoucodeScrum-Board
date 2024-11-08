@@ -6,7 +6,8 @@ const cancelTask = document.getElementById("task-cancel-btn");
 const saveTask = document.getElementById("task-save-btn");
 const successAlert = document.getElementById("success-alert");
 
-let tasksList = JSON.parse(localStorage.getItem("tasksList")) || []; // Charger les tâches depuis localStorage
+// Charger les tâches depuis localStorage
+let tasksList = JSON.parse(localStorage.getItem("tasksList")) || []; 
 let currentEditingTaskId = null;
 
 // Afficher/Masquer le formulaire d'ajout de tâche
@@ -139,6 +140,59 @@ function editTask(taskId) {
   }
 }
 
+// Fonction pour tronquer la description à 100 caractères
+function truncateDescription(description) {
+  if (description.length > 100) {
+    return description.substring(0, 100) + "...";
+  }
+  return description;
+}
+
+// Fonction pour afficher la description complète d'une tâche
+function detailsTask(taskId) {
+  // Trouver la tâche avec l'ID correspondant
+  const task = tasksList.find((task) => task.id === taskId);
+  
+  if (task) {
+    // Créer et insérer un modal dans le DOM
+    const modalContent = `
+      <div class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="descriptionModalLabel">${task.taskTitle}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h6>Type de tâche: ${task.taskType}</h6>
+              <h6>Priorité: ${task.taskPriority}</h6>
+              <h6>Statut: ${task.taskStatus}</h6>
+              <h6>Date de création: ${task.taskDate}</h6>
+              <p><strong>Description complète:</strong></p>
+              <p>${task.taskDescription}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Insérer le modal dans le body de la page
+    document.body.insertAdjacentHTML("beforeend", modalContent);
+
+    // Initialiser et afficher le modal
+    const modal = new bootstrap.Modal(document.getElementById("descriptionModal"));
+    modal.show();
+
+    // Supprimer le modal du DOM une fois qu'il est fermé
+    document.getElementById("descriptionModal").addEventListener("hidden.bs.modal", function () {
+      document.getElementById("descriptionModal").remove();
+    });
+  }
+}
+
 // Afficher la liste des tâches
 function renderTasks() {
   const toDoContainer = document.getElementById("to-do-tasks");
@@ -154,7 +208,6 @@ function renderTasks() {
   let doneCount = 0;
 
   tasksList.forEach((task) => {
-    // Sélection de l'icône en fonction du statut de la tâche
     let iconClass;
     if (task.taskStatus === "To Do") {
       iconClass = "bi-hourglass-split text-success fs-3";
@@ -163,38 +216,31 @@ function renderTasks() {
     } else if (task.taskStatus === "Done") {
       iconClass = "bi bi-check-circle text-success fs-3";
     }
-        
+
+    // Création de l'élément de tâche
     const taskItem = document.createElement("div");
     taskItem.className = "card mb-2";
     taskItem.innerHTML = `
-      <div class="card-body">
-        <i class="bi ${iconClass}"></i>
-        <h5 class="card-title fs-4">${task.taskTitle}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">#${
-          tasksList.indexOf(task) + 1
-        } créé le: ${task.taskDate}</h6>
-        <p class="card-text">${task.taskDescription}</p>
-        <div class="d-flex justify-content-start gap-2">
-          <span class="badge bg-primary fs-6">${task.taskPriority}</span>
-          <span class="badge bg-success fs-6">${task.taskType}</span>
-        </div>
-        <div class="mt-2 d-flex justify-content-end">
-          <button class="btn btn-warning me-1 task-action-btn" onclick="editTask(${
-            task.id
-          })">Modifier✏️</button>
-          <button class="btn btn-danger me-1 task-action-btn delete-btn" data-id="${
-            task.id
-          }">Supprimer🗑️</button>
-        </div>
+    <div class="card-body">
+      <i class="bi ${iconClass}"></i>
+      <h5 class="card-title fs-4">${task.taskTitle}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">#${
+        tasksList.indexOf(task) + 1
+      } créé le: ${task.taskDate}</h6>
+      <p class="card-text">${truncateDescription(task.taskDescription)}</p>
+      <div class="d-flex justify-content-start gap-2">
+        <span class="badge bg-primary fs-6">${task.taskPriority}</span>
+        <span class="badge bg-success fs-6">${task.taskType}</span>
       </div>
-    `;
-
-    taskItem
-      .querySelector(".delete-btn")
-      .addEventListener("click", function () {
-        deleteTask(task.id);
-      });
-
+      <div class="mt-2 d-flex justify-content-end">
+        <button class="btn btn-info me-1 task-action-btn" onclick="detailsTask(${task.id})">Détails▶️</button>
+        <button class="btn btn-warning me-1 task-action-btn" onclick="editTask(${task.id})">Modifier✏️</button>
+        <button class="btn btn-danger me-1 task-action-btn delete-btn" data-id="${task.id}">Supprimer🗑️</button>
+      </div>
+    </div>
+  `;  
+    
+    // Ajouter la tâche dans le bon container
     if (task.taskStatus === "To Do") {
       toDoContainer.appendChild(taskItem);
       toDoCount++;
@@ -207,13 +253,13 @@ function renderTasks() {
     }
   });
 
-  document.getElementById("to-do-tasks-count").textContent = toDoCount;
-  document.getElementById("in-progress-tasks-count").textContent = inProgressCount;
-  document.getElementById("done-tasks-count").textContent = doneCount;
+  // Afficher le nombre de tâches par statut
+  document.getElementById("to-do-count").innerText = toDoCount;
+  document.getElementById("in-progress-count").innerText = inProgressCount;
+  document.getElementById("done-count").innerText = doneCount;
 }
 
 // Charger les tâches existantes au démarrage de l'application
 document.addEventListener("DOMContentLoaded", () => {
-  renderTasks();
+  renderTasks(); // Afficher les tâches dès que la page est prête
 });
-

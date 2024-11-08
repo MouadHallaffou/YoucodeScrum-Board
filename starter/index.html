@@ -7,9 +7,11 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
       name="viewport"
     />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-
+    <meta
+      name="description"
+      content="Application web intuitive pour gérer facilement les opérations CRUD (Créer, Lire, Mettre à jour, Supprimer) avec une interface conviviale et sécurisée. Authentification utilisateur intégrée pour une gestion sécurisée des données."
+    />
+    <meta name="author" content="Mouad Hallaffou" />
     <!-- ================== BEGIN core-css ================== -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
@@ -29,7 +31,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
     />
-
     <!-- ================== END core-css ================== -->
   </head>
 
@@ -41,7 +42,9 @@
         <div class="d-flex align-items-center mb-3">
           <div>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item fs-5"><a href="javascript:;">Home</a></li>
+              <li class="breadcrumb-item fs-5">
+                <a href="javascript:;">Home</a>
+              </li>
               <li class="breadcrumb-item fs-5 active">Scrum Board</li>
             </ol>
             <!-- BEGIN page-header -->
@@ -264,7 +267,7 @@
                   rows="5"
                   id="task-description"
                   name="task-description"
-                  placeholder="minimum 50 charactere !"
+                  placeholder="minimum 50 caractères !"
                   required
                   minlength="50"
                   maxlength="1000"
@@ -314,20 +317,22 @@
       </div>
     </div>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
     <script type="text/javascript">
       $(function () {
-        $('#form-task').parsley().on('field:validated', function() {
-          var ok = $('.parsley-error').length === 0;
-          $('.bs-callout-info').toggleClass('hidden', !ok);
-          $('.bs-callout-warning').toggleClass('hidden', ok);
-        })
-        .on('form:submit', function() {
-          return false; 
-        });
+        $("#form-task")
+          .parsley()
+          .on("field:validated", function () {
+            var ok = $(".parsley-error").length === 0;
+            $(".bs-callout-info").toggleClass("hidden", !ok);
+            $(".bs-callout-warning").toggleClass("hidden", ok);
+          })
+          .on("form:submit", function () {
+            return false;
+          });
       });
-      </script>
+    </script>
 
     <!-- ================== BEGIN core-js ================== -->
     <script src="assets/js/script.js"></script>
