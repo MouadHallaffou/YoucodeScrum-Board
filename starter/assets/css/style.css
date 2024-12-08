@@ -15,6 +15,7 @@ body {
 
 #modal-task {
   position: absolute;
+  z-index: 100;
   top: 10%;
   right: 35%;
   width: 450px;
@@ -31,7 +32,7 @@ span.required-star {
   position: fixed;
   width: 350px;
   top: 30px;
-  left: 600px;
+  left: 650px;
   background-color: #44fe8e;
   color: #026218fd;
   padding: 10px 20px;
@@ -46,7 +47,6 @@ span.required-star {
   margin-right: 10px;
   font-size: 30px;
 }
-
 
 
 /* 
